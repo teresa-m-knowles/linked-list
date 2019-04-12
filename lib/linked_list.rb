@@ -44,9 +44,7 @@ class LinkedList
     string = ""
     node = @head
     return string if !@head
-    # if @head && !@head.next_node
-    #   string.concat(@head.data)
-    # end
+
     while node do
       string.concat(node.data)
       if node.next_node
@@ -56,6 +54,19 @@ class LinkedList
     end
     string
   end
+
+  def prepend(data)
+    node = Node.new(data)
+    node.next_node = @head
+    @head = node
+    data
+  end
+
+  def insert(position, data)
+    
+
+  end
+
 
 
 end
