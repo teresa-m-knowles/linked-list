@@ -93,6 +93,28 @@ class LinkedList
     new_node = Node.new(data)
     new_node.next_node = current_node.next_node
     current_node.next_node = new_node
+  end
+
+  def find(first_position, number_of_elements)
+    current_node = @head
+    i = 0
+
+    while first_position > i  && current_node.next_node do
+      i += 1
+      current_node = current_node.next_node
+    end
+
+    count_of_elements = 0
+    string = ""
+
+    while count_of_elements < number_of_elements do
+      count_of_elements += 1
+      string.concat(current_node.data)
+        if count_of_elements == number_of_elements
+          string.concat(" ")
+        end
+    end
+    return string
 
   end
 
