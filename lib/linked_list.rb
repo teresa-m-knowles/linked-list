@@ -37,7 +37,7 @@ class LinkedList
       node = node.next_node
       i += 1
     end
-    i
+     i
   end
 
   def to_string
@@ -63,9 +63,40 @@ class LinkedList
   end
 
   def insert(position, data)
-    
+    i = 0
+    next_node = nil
+    prev_node = nil
+    node = @head
+
+    until next_node  && i == position do
+      i += 1
+      prev_node = node
+      next_node = node.next_node
+    end
+
+    if i == position
+      new_node = Node.new(data)
+      new_node.next_node = next_node
+      prev_node.next_node = new_node
+    end
+  end
+
+  def insert(position, data)
+    current_node = @head
+    i = 0
+
+    while position<i  && current_node.next_node do
+      i += 1
+      current_node = current_node.next_node
+    end
+
+    new_node = Node.new(data)
+    new_node.next_node = current_node.next_node
+    current_node.next_node = new_node
 
   end
+
+
 
 
 
